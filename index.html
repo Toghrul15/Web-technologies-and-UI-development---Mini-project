@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Курсы валют</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="converter" aria-labelledby="title">
+      <h1 id="title">Конвертер валют</h1>
+
+      <label class="field">
+        <span>Сумма</span>
+        <input id="amount" type="number" min="0" step="any" value="100" inputmode="decimal">
+      </label>
+
+      <div class="pair">
+        <label class="field">
+          <span>Из</span>
+          <select id="from"></select>
+        </label>
+        <button id="swap" type="button" aria-label="Поменять валюты местами">⇄</button>
+        <label class="field">
+          <span>В</span>
+          <select id="to"></select>
+        </label>
+      </div>
+
+      <output class="result" id="result" aria-live="polite">—</output>
+      <p class="rate-line" id="rateLine"></p>
+      <p class="updated" id="updated"></p>
+    </section>
+
+    <section class="rates" aria-labelledby="ratesTitle">
+      <div class="rates-head">
+        <h2 id="ratesTitle">Все курсы к <span id="baseCode">USD</span></h2>
+        <input id="search" type="search" placeholder="Найти валюту" aria-label="Найти валюту">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Валюта</th><th class="num">Курс</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="status" id="status" role="status" hidden></div>
+  <script src="script.js"></script>
+</body>
+</html>
